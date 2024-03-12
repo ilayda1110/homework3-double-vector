@@ -1,8 +1,4 @@
 # ninja log v5
-4	348	7319291193446684	CMakeFiles/double_vector.dir/Double_Vector.cpp.obj	bc2e01c6f040cbcc
-2	255	7319292955733524	CMakeFiles/double_vector.dir/main.cpp.obj	5a593d8800c066f4
-2	315	7319296981220233	CMakeFiles/double_vector.dir/main.cpp.obj	9766202a042176db
-6	315	7319296981230249	CMakeFiles/double_vector.dir/Double_Vector.cpp.obj	617461d1dd432f55
-3	265	7319298189918185	CMakeFiles/double_vector.dir/main.cpp.obj	9766202a042176db
 6	286	7319298190118364	CMakeFiles/double_vector.dir/Double_Vector.cpp.obj	617461d1dd432f55
+3	265	7319298189918185	CMakeFiles/double_vector.dir/main.cpp.obj	9766202a042176db
 286	349	7319298190738929	double_vector.exe	8589bd26baa17dec

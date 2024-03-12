@@ -2,7 +2,7 @@
 #define DOUBLE_VECTOR_DOUBLE_VECTOR_H
 
 #pragma once
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -18,9 +18,9 @@ public:
     Double_vector(double[], int);
     Double_vector(const Double_vector& x);
     void print()const;
-    ~Double_vector() {}
+    ~Double_vector() { cout << "Destructor" << endl; }
     int size() const;
-    Double_vector& operator=(const Double_vector& x);
+    //Double_vector& operator=(const Double_vector& x);
 
     int max_size() const;
     void resize(int n, double val = 0.0);
@@ -29,8 +29,8 @@ public:
     //void reserve(int n);
     //void shrink_to_fit();
     double& operator[](int pos);
-    //const double& operator[](int pos) const;
-    //double& at(int pos);
+    const double& operator[](int pos) const;
+    double& at(int pos);
     const double& at(int pos) const;
     //double& front();
     //const double& front() const;

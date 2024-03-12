@@ -89,9 +89,14 @@ double& Double_vector::operator[](int pos)
     return items[pos];
 }
 
-const double& Double_vector::at(int pos) const
+const double& Double_vector::operator[](int pos) const
 {
-    if(pos > 0 && pos <= sz)
+    return items[pos];
+}
+/*
+double& Double_vector::at(int pos)
+{
+    if(pos >= 0 && pos < sz)
     {
         return items[pos];
     }
@@ -101,6 +106,18 @@ const double& Double_vector::at(int pos) const
     }
 }
 
+const double& Double_vector::at(int pos) const
+{
+    if(pos >= 0 && pos < sz)
+    {
+        return items[pos];
+    }
+    else
+    {
+        cout << "Invalid index" << endl;
+    }
+}
+*/
 void Double_vector::push_back(const double& val)
 {
     if (sz < this->array_capacity)
@@ -148,36 +165,28 @@ void Double_vector::pop_back()
 
 void Double_vector::insert(int pos, double value)
 {
-    if(pos > 0 && pos <= sz)
+    if(pos >= 0 && pos < sz)
     {
         if(sz < array_capacity)
         {
-            for(int i=sz; i > pos-1; i--)
+            for(int i=sz; i > pos; i--)
             {
                 items[i] = items[i-1];
             }
-            items[pos-1] = value;
+            items[pos] = value;
+            sz++;
         }
         else
         {
-            sz ++;
+            sz++;
             double *new_elements = new double[array_capacity*2];
             array_capacity *= 2;
-            if(pos == 1)
-            {
-                new_elements[0] = value;
-                for(int i=1; i < sz; i++)
-                    new_elements[i] = items[i-1];
-            }
-            else
-            {
-                for (int i = 0; i < pos-1; i++)
-                    new_elements[i] = items[i];
+            for (int i = 0; i < pos; i++)
+                new_elements[i] = items[i];
 
-                new_elements[pos-1] = value;
-                for(int i=0; i < sz; i++)
-                    new_elements[i] = items[i-1];
-            }
+            new_elements[pos] = value;
+            for(int i=pos+1; i < sz; i++)
+                new_elements[i] = items[i-1];
             delete []items;
             items = new_elements;
         }
@@ -186,9 +195,9 @@ void Double_vector::insert(int pos, double value)
 
 void Double_vector::erase(int pos)
 {
-    if(pos > 0 && pos <= sz)
+    if(pos >= 0 && pos < sz)
     {
-        for(int i=pos; i < sz; i++)
+        for(int i=pos-1; i < sz; i++)
         {
             items[i-1] = items[i];
         }
